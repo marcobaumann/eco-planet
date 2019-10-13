@@ -1,0 +1,123 @@
+// SCSS somente para IE 10 +
+
+//fix da barra do header
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    .ie-menu-container {
+        >header {
+            width: 100vw;
+        }
+    }
+
+
+
+
+}
+
+//fix blocos de conteudo relacionado
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    .related-content.ie-related-content {
+        display: block;
+
+        .related-content-wrapper {
+            display: block;
+            width: 100%;
+
+            @media screen and (min-width: 1024px) {
+                display: inline-block;
+                width: 24%;
+                margin: 0 5px;
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+//fix na cor do placeholder
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    input:-ms-input-placeholder {
+        color: #cdcdcd !important;
+        /* IE11 needs the !important flag */
+    }
+    textarea:-ms-input-placeholder {
+        color: #cdcdcd !important;
+        /* IE11 needs the !important flag */
+    }
+}
+
+//Fix para hover nos itens de vantagem
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    .item.-extra {
+        overflow: visible;
+
+    }
+}
+
+//fix para altura de video
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    .video-container video {
+        max-height: 370px;
+
+        @media screen and (min-width: 768px) {
+            max-height: 485px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            max-height: 565px;
+        }
+    }
+}
+
+//fix setas timeline
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    .timeline-button-prev {
+        padding: 11px 9px !important;
+        display: block !important;
+        box-sizing: border-box !important;
+    }
+
+    .timeline-button-next {
+        padding: 11px 11px !important;
+        display: block !important;
+        box-sizing: border-box !important;
+    }
+}
+
+//Remove seta do IE11
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+
+    select::-ms-expand {
+        display: none;
+    }
+}
+
+//bloco de postagens de blog   
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    .posts-grid .right-block .others-posts {
+        display: block !important;
+
+        .post-wrapper:first-child {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.page-template-page-solucoes-mercado-livre-energia {
+
+    .js-feedback {
+        display: none;
+    }
+}
