@@ -14,7 +14,7 @@ module.exports = {
         },
         options: {
             watchTask: true,
-            proxy: "magnet.localhost",
+            proxy: "ecoplanet.localhost",
             logPrefix: 'BS',
             open: false,
             reloadOnRestart: true,

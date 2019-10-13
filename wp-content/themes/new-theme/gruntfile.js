@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     gtx.loadAuto();
 
     var gruntConfig = require('./grunt');
-    gruntConfig.package = require('./package.json.js');
+    gruntConfig.package = require('./package.json');
 
     gtx.config(gruntConfig);
 
