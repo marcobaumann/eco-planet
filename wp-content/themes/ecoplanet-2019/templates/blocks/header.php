@@ -5,8 +5,8 @@
 <nav>
       <div class="container">
         <div>
-          <a href="index.html">
-            <img src="img/logo-ecoplanet.jpg" alt="" class="logo">
+          <a href="/">
+            <img src="<?php echo get_asset_uri('img/logo-ecoplanet.jpg');?>" alt="Logomarca Ecoplanet" class="logo">
           </a>
           <div class="menu">
             <ul>
@@ -38,15 +38,4 @@
       </div>
     </nav>
 
-  <header>
-    <img src="img/home.jpg" alt="">
-    <div class="mask"></div>
-    <div class="filter"></div>
-    <div class="content">
-      <div class="container">
-        <div class="uppercase-text -white mb-20">Ecoplanet</div>
-        <h1 class="-white">Vida longa às suas flores: Conheça o conservante Flower</h1>
-        <a href="post.html" class="button -solid -green mt-20">Saiba mais</a>
-      </div>
-    </div>
-  </header>
+  

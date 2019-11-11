@@ -1,6 +1,6 @@
 <?php
 /**
-  * Template Name: Home
+  * Template Name: Sobre
 */
 the_post();
 ?>
