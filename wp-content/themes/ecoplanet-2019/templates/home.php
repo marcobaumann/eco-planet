@@ -1,6 +1,5 @@
 <?php
 // Template Name: Homepage
-the_post();
 ?>
 
 <header>
@@ -61,21 +60,24 @@ the_post();
     <div class="container">
       <div class="news-header">
         <h2 class="-blue">Notícias</h2>
-        <a href="news.html" class="button -solid -green">Ver todas</a>
+        <a href="/blog" class="button -solid -green">Ver todas</a>
       </div>
       <div class="news-wrapper">
         <div class="row">
-          <div class="col-md-4">
-            <a href="post.html" class="-wrapper-hover">
-            <img src="img/post.jpg" alt="">
-            <h5 class="-blue mt-20">07 cuidados básicos com flores de corte</h5>
-            <p class="-grey">
-              As flores de corte são conhecidas por trazerem vida aos ambientes através de belos arranjos ou
-              simplesmente […]
-            </p>
-            <div class="button -outline -blue mt-20">Ler agora</div>
-          </a>
-        </div>
+
+        <?php query_posts( 'posts_per_page=12' ); ?>
+
+        <?php while ( have_posts() ) : the_post(); ?>
+            <div class="col-md-4">
+                <a href="<?php the_permalink(); ?>" class="-wrapper-hover">
+                    <img src="<?php the_post_thumbnail_url() ?>" alt="">
+                    <h5 class="-blue mt-20"><?php the_title(); ?></h5>
+                    <p class="-grey"><?php the_excerpt(); ?></p>
+                    <div class="button -outline -blue mt-20">Ler agora</div>
+                </a>
+            </div>
+        <?php endwhile; ?>  
+
       </div>
     </div>
     </div>
@@ -88,12 +90,10 @@ the_post();
     </a>
     <div class="container">
       <div class="content-box">
-        <a class="-blue phone" href="">(48) 3244-8309</a>
-        <a class="mail" href="mailto:admin@admin@ecoplanet.agr.br">admin@ecoplanet.agr.br</a>
+        <a class="-blue phone" href=""><?php echo get_field('telefone_2', 'options');?></a>
+        <a class="mail" href="mailto:<?php echo get_field('e-mail', 'options');?>"><?php echo get_field('e-mail', 'options');?></a>
         <div class="address -blue">
-          Servidão Maria Farias, 67
-          Rio Tavares, Florianópolis – SC
-          CEP 88048335
+            <?php echo get_field('endereco', 'options');?>
         </div>
       </div>
     </div>

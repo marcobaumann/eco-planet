@@ -1,7 +1,7 @@
 
 
 <footer>
-    <div class="container">
+    <div class="footer container">
     <img src="<?php echo get_asset_uri('img/logo-ecoplanet-white.png');?>" alt="Logomarca Ecoplanet" class="logo">
     <div class="social">
         <a href="https://www.facebook.com/ecoplanetflorianopolis" target="_blank">

@@ -63,13 +63,17 @@ add_action( 'after_setup_theme', 'register_menus' );
 /* REGISTRO DE SCRIPTS E STYLES */
 function enqueue_styles_scripts(){
   // Frameworks CSS
+  wp_enqueue_style("bootstrap", get_template_directory_uri() . '/dist/css/bootstrap.min.css', array(), ASSETS_VERSION, 'all');
   wp_enqueue_style("swiper", get_template_directory_uri() . '/dist/css/swiper.min.css', array(), ASSETS_VERSION, 'all');
 
   // Estilo do Tema
   wp_enqueue_style("index", get_template_directory_uri() . '/dist/css/index.min.css', array(), ASSETS_VERSION, 'all');
 
   // Frameworks JS
-  wp_enqueue_script( 'jquery', get_template_directory_uri() . '/dist/js/vendor/jquery.js', array(), ASSETS_VERSION, true );
+
+//   wp_deregister_script('jquery');
+//   wp_enqueue_script( 'jquery', get_template_directory_uri() . '/dist/js/vendor/jquery.js', array(), ASSETS_VERSION, true );
+  wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/dist/js/vendor/bootstrap.min.js', array(), ASSETS_VERSION, true );
   wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/vendor/swiper.min.js', array(), ASSETS_VERSION, true );
 
   wp_enqueue_script("main", get_template_directory_uri() . '/dist/js/application.js', array("jquery"), ASSETS_VERSION, true);

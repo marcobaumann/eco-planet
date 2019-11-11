@@ -10,7 +10,9 @@
   body {
     margin: 0;
   }
-  
+  .container {
+    width: auto !important;
+  }
   /* nav */
   nav {
     position: fixed;
@@ -161,12 +163,14 @@
   }
   
   
+
   /* intro */
   .intro .container {
     margin-top: 150px;
     margin-bottom: 150px;
     text-align: center;
     max-width: 980px;
+    
   }
   
   
@@ -746,6 +750,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+  }
+
+  footer .container::before {
+    display: none;
+  }
+
+  footer .container::after {
+    display: none;
   }
   
   footer .container .logo {

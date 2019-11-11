@@ -1,7 +1,9 @@
 <script>
     var $ = jQuery;
 </script>
-
+<?php
+the_post(); 
+?>
 <nav>
       <div class="container">
         <div>
@@ -24,9 +26,9 @@
               Comprar
               <div class="buy-modal">
                 <p class="mb-20">Entre em contato via telefone ou email:</p>
-                <a class="-blue phone" href="">(48) 3244-8778</a>
-                <a class="-blue phone" href="">(48) 3244-8309</a>
-                <a class="mail" href="mailto:admin@admin@ecoplanet.agr.br">admin@ecoplanet.agr.br</a>
+                <a class="-blue phone" ><?php echo get_field('telefone_1', 'option');?></a>
+                <a class="-blue phone" ><?php echo get_field('telefone_2', 'option');?></a>
+                <a class="mail" href="mailto:<?php echo get_field('e-mail', 'option');?>"><?php echo get_field('e-mail', 'option');?></a>
                 <p>Nossos produtos são encontrados em todo território nacional através dos nossos distribuidores e
                   parceiros. </p>
               </div>
