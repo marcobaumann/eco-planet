@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Arya:400,700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.uppercase-text {
+  letter-spacing: .06rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+a:hover {
+  color: #2D2C70 !important;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mb-10 {
+  margin-bottom:10px;
+}
+
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 44px;
+  font-family: "URW", sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 38px;
+  font-family: "URW", sans-serif;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 32px;
+  line-height: 140%;
+  font-family: "URW", sans-serif;
+  font-weight: normal;
+}
+
+h5 {
+  font-family: "URW", sans-serif;
+  font-size: 28px;
+  line-height: 110%;
+}
+
+p {
+  font-size: 16px;
+  line-height: 160%;
+  margin: 0;
+  font-weight: 300;
+}
+
+.-blue {
+  color: #2D2C70;
+}
+
+.-white {
+  color: white;
+}
+
+.-grey {
+  color: #787878;
+}
+
+.button {
+  font-family: "URW", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .05rem;
+  position: relative;
+}
+.button.-outline {
+  border: 2px solid;
+}
+.button.-outline.-blue {
+  border-color: #2D2C70;
+}
+.button.-outline.-blue:hover {
+  color: white;
+  background-color: #2D2C70;
+  cursor: pointer;
+}
+.button.-solid.-green {
+  background-color: #84C455;
+  color: white;
+}
+.button.-solid.-white {
+  background-color: white;
+  color: #2D2C70;
+}
+
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #2D2C70;
+  border-radius: 0;
+  color: #2D2C70;
+  font-weight: 300;
+  padding: 5px 0;
+  outline: none;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  h3 {
+    font-size: 22px !important;
+  }
+
+  .uppercase-text {
+    font-size: 13px;
+}
+}

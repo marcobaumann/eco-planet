@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'URW';
+    src: url('URWImperialT-ExtrBold.woff2') format('woff2'),
+        url('URWImperialT-ExtrBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW';
+    src: url('URWImperialW01-Regular.woff2') format('woff2'),
+        url('URWImperialW01-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
