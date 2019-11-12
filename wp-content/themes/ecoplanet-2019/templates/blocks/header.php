@@ -11,17 +11,9 @@ the_post();
             <img src="<?php echo get_asset_uri('img/logo-ecoplanet.jpg');?>" alt="Logomarca Ecoplanet" class="logo">
           </a>
           <div class="menu">
-            <ul>
-              <li>
-                <a href="about.html">Sobre</a>
-              </li>
-              <li>
-                <a href="products.html">Produtos</a>
-              </li>
-              <li>
-                <a href="news.html">Blog</a>
-              </li>
-            </ul>
+
+            <?php wp_nav_menu(); ?>
+            
             <div class="button -outline -blue">
               Comprar
               <div class="buy-modal">
