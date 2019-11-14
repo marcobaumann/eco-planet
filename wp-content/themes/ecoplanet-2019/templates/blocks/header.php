@@ -2,7 +2,10 @@
     var $ = jQuery;
 </script>
 <?php
-the_post(); 
+if (!is_search()){
+
+  the_post(); 
+}
 ?>
 <nav>
       <div class="container">

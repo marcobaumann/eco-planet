@@ -74,12 +74,12 @@ function mint_search_cpt($query){
 add_action('pre_get_posts','mint_search_cpt');
 
 
-function wpbeginner_numeric_posts_nav() {
+function wpbeginner_numeric_posts_nav($wp_query) {
  
-    if( is_singular() )
-        return;
+    // if( is_singular() )
+    //     return;
  
-    global $wp_query;
+    // global $wp_query;
  
     /** Stop execution if there's only 1 page */
     if( $wp_query->max_num_pages <= 1 )
@@ -131,7 +131,7 @@ function wpbeginner_numeric_posts_nav() {
 			$links[] = $paged - 4;
 	}
  
-    echo '<div id="pagination" class="navigation mt-80 mb-40">' . "\n";
+    echo '<div class="pagination">' ."\n";
  
 	/*
 	<div id="pagination" class="mt-80 mb-40">
@@ -150,20 +150,20 @@ function wpbeginner_numeric_posts_nav() {
 	*/
 
 	/** First Post Link */
-	if ($paged !== 1) {
-		printf( '<a href="%s"><div class="pagination-arrow -first"></div></a>' . "\n", esc_url( get_pagenum_link( 1 ) ));
+	// if ($paged !== 1) {
+	// 	printf( '<div class="arrow left"><a href="%s"><img src="'.get_asset_uri('img/arrow-left.svg').'" alt=""></a></div>' . "\n", esc_url( get_pagenum_link( 1 ) ));
 
-	} else {
-		printf( '<div class="pagination-arrow -first -disabled"></div>' . "\n");
+	// } else {
+	// 	printf( '<div class="arrow left"><img src="'.get_asset_uri('img/arrow-left.svg').'" alt=""></div>' . "\n");
 		
-	}
+	// }
 
     /** Previous Post Link */
-    if ( get_previous_posts_link() ) {
-		printf( '<a href="%s"><div class="pagination-arrow -prev"></div></a>' . "\n", esc_url( get_pagenum_link( ($paged-1) ) ) );
+    if ( $paged > 1 ) {
+		printf( '<a href="%s"><div class="arrow left -active"><img src="'.get_asset_uri('img/arrow-left.svg').'" alt=""></div></a>' . "\n", esc_url( get_pagenum_link( ($paged-1) ) ) );
 
 	} else {
-		printf( '<div class="pagination-arrow -prev -disabled"></div>' . "\n");
+		printf( '<div class="arrow left"><img src="'.get_asset_uri('img/arrow-left.svg').'" alt=""></div>' . "\n");
 		
 	}
 		
@@ -184,8 +184,8 @@ function wpbeginner_numeric_posts_nav() {
 		/** Link to current page, plus 2 pages in either direction if necessary */
 		sort( $links );
 		foreach ( (array) $links as $link ) {
-			$class = $paged == $link ? ' class="selected"' : '';
-			printf( '<span%s><a href="%s">%s</a></span>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
+			$class = $paged == $link ? ' class="-active"' : '';
+			printf( '<a %s href="%s">%s</a>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
 		}
 	
 	echo '</div>';
@@ -200,24 +200,21 @@ function wpbeginner_numeric_posts_nav() {
     // }
  
     /** Next Post Link */
-    if ( get_next_posts_link() ) {
-		printf( '<a href="%s"><div class="pagination-arrow -next"></div></a>' . "\n", esc_url( get_pagenum_link( ($paged + 1) ) ) );
+    if ( $paged < $max ) {
+		printf( '<a href="%s"><div class="arrow right -active"><img src="'.get_asset_uri('img/arrow-right.svg').'" alt=""></div></a>' . "\n", esc_url( get_pagenum_link( ($paged + 1) ) ) );
 	} else {
 		
-		printf( '<div class="pagination-arrow -next -disabled"></div>' . "\n"  );
+		printf( '<div class="arrow right"><img src="'.get_asset_uri('img/arrow-right.svg').'" alt=""></div>' . "\n"  );
 	}
 
-	/** Link to last page */
-	if ($paged !== $max) {
-		printf( '<a href="%s"><span class="pagination-arrow -last"></span></a>' . "\n", esc_url( get_pagenum_link( $max ) ) );
+	// /** Link to last page */
+	// if ($paged !== $max) {
+	// 	printf( '<a href="%s"><span class="pagination-arrow -last"></span></a>' . "\n", esc_url( get_pagenum_link( $max ) ) );
 
-	} else {
-		printf( '<span class="pagination-arrow -last -disabled"></span>' . "\n" );
+	// } else {
+	// 	printf( '<span class="pagination-arrow -last -disabled"></span>' . "\n" );
 
-	}
-	
-
-	
+	// }
 
  
     echo '</div>' . "\n";
@@ -249,7 +246,7 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 
 /* PAGINACAO PARA CPTS e POSTS */
-function news_pagination($pages = '', $range = 2)
+function news_pagination($wp_query, $pages = '', $range = 2)
 {
      $showitems = ($range);
 
@@ -258,7 +255,7 @@ function news_pagination($pages = '', $range = 2)
 
      if($pages == '')
      {
-		 global $wp_query;
+		 //global $wp_query;
          $pages = $wp_query->max_num_pages;
          if(!$pages)
          {

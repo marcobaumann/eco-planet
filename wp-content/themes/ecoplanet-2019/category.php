@@ -4,7 +4,6 @@
  */
 
 global $wp_query;
-global $query_string;
 
 
 $page  = max( 1, get_query_var( 'paged' ) );
@@ -16,71 +15,81 @@ $total = $wp_query->found_posts;
 ?>
 
 
-<div class="main">
-  <div class="wrap">
+<section class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="-blue mb-20">Categoria: <b><?php single_cat_title();?></b></h4>
+        </div>
 
 
-    <div class="">
-      Você está vendo a categoria <span>"<?php single_cat_title();?>"</span>
-    </div>
-
-    <div class="">
-
-      <div class="grid">
-
-      <?php 
-      
-      // The Loop
-      if ( have_posts() ) {
-        while ( have_posts() ) {
-          the_post();
+        <div class="col-md-8">
+          <div class="posts-wrapper">
+          <?php 
+          $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+        
+         
+          if (have_posts() ) :
+            while ( have_posts() ) :
+              the_post();
           ?>
-          <div class="item">
-            <div class="item-inner">
-              <img <?php awesome_acf_responsive_image(get_post_thumbnail_id(get_the_ID()), '' , '1350px' ) ?> alt="">
-              <h3 class=""><?php the_title(); ?></h3>
-              <p class=""><?php echo wp_trim_words(get_the_excerpt(), 40, ' [...]'); ?></p>
-              <a href="<?php the_permalink();?>" class="button -full-orange">
-                <span>
-                  Saiba mais
-                </span>
-              </a>
-            </div>
+            <a href="<?php the_permalink(); ?>" class="post">
+              <?php if(has_post_thumbnail()): ?>
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>">
+              <?php endif; ?>
+              <div class="news-post-content">
+                <div class="title -blue mb-10"><?php the_title(); ?></div>
+                <p class="-grey"><?php echo get_the_excerpt(); ?></p>
+              </div>
+            </a>
+          <?php 
+            endwhile;
+             /* Restore original Post Data */
+              wp_reset_postdata();
+          endif;
+          ?>
+
           </div>
-          <?php
-        }
-        /* Restore original Post Data */
-        wp_reset_postdata();
-      }
-
-    
-    ?>
-
-      <?php echo news_pagination($wp_query->max_num_pages, 4); ?>
-     
-
-      </div>
-
-      <div class="categories-wrapper">
-        <div class="categories">
-          <h4>Buscar por</h4>
-          <form action="/"  >
-            <input name="s" type="text" placeholder="Buscar por...">
-          </form>
-          <h4>Categorias</h4>
-          <ul>
-              <?php wp_list_categories(array(
-              // 'style' => 'list',
-              'exclude' => array(1),
-              'title_li' => ''
-            )); ?>
-           
-          </ul>
+          <!-- paginacao -->
+          <?php 
+          wpbeginner_numeric_posts_nav($wp_query); ?>
+          
+        </div>
+        <!-- Coluna lateral -->
+        <div class="col-md-4">
+          <div class="box-categories">
+            <div class="text-uppercase -blue mb-10">Buscar por</div>
+            <div class="search-wrapper">
+              <form action="/">
+                <input name="s" type="text" placeholder="Escreva aqui...">
+                <button class="search" type="submit">
+                  <img src="<?php echo get_asset_uri('img/search.svg');?>" alt="">
+                </button>
+              </form>
+            </div>
+            <div class="text-uppercase -blue mb-10 mt-50">Categorias</div>
+            <?php wp_list_categories(array('title_li' => '', 'exclude' => array(1) )); ?>
+          </div>
         </div>
       </div>
 
     </div>
+  </section>
 
-  </div>
 
-</div>
+
+  <section class="map">
+    <a href="https://goo.gl/maps/fryV7SAecZsQZWzS7" target="_blank" class="map-wrapper">
+      <img src="<?php echo get_asset_uri('img/map.jpg');?>" alt="" class="map-image">
+      <img src="<?php echo get_asset_uri('img/pin.svg');?>" alt="" class="pin">
+    </a>
+    <div class="container">
+      <div class="content-box">
+        <a class="-blue phone" href=""><?php echo get_field('telefone_2', 'options');?></a>
+        <a class="mail" href="mailto:<?php echo get_field('e-mail', 'options');?>"><?php echo get_field('e-mail', 'options');?></a>
+        <div class="address -blue">
+            <?php echo get_field('endereco', 'options');?>
+        </div>
+      </div>
+    </div>
+  </section>

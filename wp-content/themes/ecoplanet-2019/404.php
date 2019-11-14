@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package Magnet-2019
+ * @package Ecoplanet-2019
  */
 ?>
 

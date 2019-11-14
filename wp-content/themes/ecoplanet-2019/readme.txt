@@ -9,7 +9,7 @@ Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called Magnet-2019.
+A starter theme called Ecoplanet-2019.
 
 == Description ==
 
@@ -25,7 +25,7 @@ Description
 
 = Does this theme support any plugins? =
 
-Magnet-2019 includes support for Infinite Scroll in Jetpack.
+Ecoplanet-2019 includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 

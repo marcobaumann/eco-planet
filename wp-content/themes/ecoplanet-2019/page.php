@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Magnet-2019
+ * @package Ecoplanet-2019
  */
 //get_header(); 
 the_post();

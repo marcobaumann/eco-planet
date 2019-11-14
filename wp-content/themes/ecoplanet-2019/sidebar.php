@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Magnet-2019
+ * @package Ecoplanet-2019
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
