@@ -28,9 +28,14 @@ $total = $wp_query->found_posts;
           <?php 
           $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
         
+
+          if ( have_posts() ) : ?>
+            <?php while ( have_posts() ) : the_post(); ?>           
+            <?php endwhile; ?>
+          <?php endif;
          
-          if (have_posts() ) :
-            while ( have_posts() ) :
+          if (have_posts()  ) :
+            while (have_posts() ) :
               the_post();
           ?>
             <a href="<?php the_permalink(); ?>" class="post">
