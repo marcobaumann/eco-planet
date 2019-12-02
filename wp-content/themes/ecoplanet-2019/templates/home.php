@@ -65,7 +65,7 @@
       <div class="news-wrapper">
         <div class="row">
 
-        <?php query_posts( 'posts_per_page=12' ); ?>
+        <?php query_posts( 'posts_per_page=3' ); ?>
 
         <?php while ( have_posts() ) : the_post(); ?>
             <div class="col-md-4">

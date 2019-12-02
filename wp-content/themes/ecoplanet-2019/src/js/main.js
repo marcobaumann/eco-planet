@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+  $(function() {                   
+    $(".open-menu").click(function() { 
+      $('.menu').toggleClass("-open"); 
+      $(this).hide();      
+      $('.mobile-buy').hide();      
+    });
+  });
+
+  $(function() {                   
+    $(".close-menu").click(function() { 
+      $('.menu').toggleClass("-open");
+      $('.open-menu').show(); 
+      $('.mobile-buy').show();          
+    });
+  });
+
     //Código exclusivo da Home
     if ($('body').hasClass('page-template-home')) {
         var swiper = new Swiper('.swiper-container', {
