@@ -53,7 +53,7 @@
   <section class="top-news">
     <div class="container">
       <div class="news-header">
-        <h2 class="-blue">Notícias</h2>
+        <h2 class="-blue">Blog</h2>
         <a href="/blog" class="button -solid -green">Ver todas</a>
       </div>
       <div class="news-wrapper">
